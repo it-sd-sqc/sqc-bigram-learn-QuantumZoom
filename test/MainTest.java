@@ -60,5 +60,23 @@ class MainTest {
     );
   }
 
-  // TODO: Create your test(s) below. /////////////////////////////////////////
+
+    // TODO: Create your test(s) below. /////////////////////////////////////////
+    @Test
+    void getId() {
+       Connection db = Main.createConnection();
+
+       String aWord = "It's";
+
+       assertDoesNotThrow(
+               () -> {
+                   int idValue = Main.getId(db, aWord);
+                   assertTrue(idValue > 0);
+                   db.close();
+               }
+       );
+
+    }
+
+
 }
